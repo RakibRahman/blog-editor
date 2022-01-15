@@ -2,6 +2,14 @@
   background: gray;
 }
 .editorClassName {
-  height: 100vh;
-  border-bottom: 1px solid #f14;
+  height: 50vh !important;
+  border: 1px solid #f14;
+}
+.toolbarClassName{
+  background:#9EBEF5 !important;
+}
+.rdw-option-wrapper img{
+  width: 18px;
+  height: 18px;
+  object-fit:cover;
 }

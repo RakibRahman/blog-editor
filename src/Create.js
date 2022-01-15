@@ -5,7 +5,7 @@ import {
     ModalHeader,
     ModalFooter,
     ModalBody,
-    ModalCloseButton, useDisclosure
+    ModalCloseButton, useDisclosure, Text
 } from '@chakra-ui/react';
 import './create.css'
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -14,13 +14,26 @@ import htmlToDraft from 'html-to-draftjs';
 import { EditorState, convertToRaw, convertFromRaw, ContentState } from "draft-js";
 import draftToHtml from 'draftjs-to-html';
 import { Editor } from "react-draft-wysiwyg";
-
-
+import { FaArtstation } from "react-icons/fa";
+import ImgIcon from './img-icon.png';
 export const Create = () => {
     // console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())))
 
     const content = { "entityMap": {}, "blocks": [{ "key": "637gr", "text": "Initialized from content state.", "type": "unstyled", "depth": 0, "inlineStyleRanges": [], "entityRanges": [], "data": {} }] };
-    const [editorState, setEditorState] = useState(() => EditorState.createEmpty())
+
+    const mentions = [
+        { text: 'APPLE', value: 'apple', url: 'facebook.com' },
+        { text: 'BANANA', value: 'banana', url: 'banana' },
+        { text: 'CHERRY', value: 'cherry', url: 'cherry' },
+        { text: 'DURIAN', value: 'durian', url: 'durian' },
+        { text: 'EGGFRUIT', value: 'eggfruit', url: 'eggfruit' },
+        { text: 'FIG', value: 'fig', url: 'fig' },
+        { text: 'GRAPEFRUIT', value: 'grapefruit', url: 'grapefruit' },
+        { text: 'HONEYDEW', value: 'honeydew', url: 'honeydew' },
+    ];
+    const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
+    // const convertManager = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+
     const { isOpen, onOpen, onClose } = useDisclosure();
     const contentStateRaw = convertFromRaw(content);
     const [contentState, setContentState] = useState(contentStateRaw);
@@ -29,7 +42,12 @@ export const Create = () => {
     useEffect(() => {
         console.log('Raw Html', rawHTML)
 
-    }, [rawHTML])
+    }, [rawHTML]);
+
+    // useEffect(() => {
+    //     console.log('convertManager', convertManager)
+
+    // }, [convertManager]); 
     // preview html
     useEffect(() => {
 
@@ -39,14 +57,16 @@ export const Create = () => {
         // onContentStateChange();
     }, [contentState])
     useEffect(() => {
-        console.log('Editor State:')
-        console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+        // console.log('Editor State:')
+        // console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
 
     }, [editorState])
 
+    const HTMlPreview = () => <Text className="rdw-option-wrapper"  onClick={onOpen}> Preview HTML</Text>
+
+
     return (
         <Box>
-            <Button onClick={onOpen}>Preview HTML</Button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
@@ -96,31 +116,19 @@ export const Create = () => {
                 wrapperClassName="wrapperClassName"
                 editorClassName="editorClassName"
                 onEditorStateChange={(editorState) => setEditorState(editorState)}
+                toolbar={{
+                    image: { icon: ImgIcon }
+                }}
                 mention={{
                     separator: ' ',
                     trigger: '@',
-                    suggestions: [
-                        { text: 'APPLE', value: 'apple', url: 'facebook.com' },
-                        { text: 'BANANA', value: 'banana', url: 'banana' },
-                        { text: 'CHERRY', value: 'cherry', url: 'cherry' },
-                        { text: 'DURIAN', value: 'durian', url: 'durian' },
-                        { text: 'EGGFRUIT', value: 'eggfruit', url: 'eggfruit' },
-                        { text: 'FIG', value: 'fig', url: 'fig' },
-                        { text: 'GRAPEFRUIT', value: 'grapefruit', url: 'grapefruit' },
-                        { text: 'HONEYDEW', value: 'honeydew', url: 'honeydew' },
-                    ],
+                    suggestions: mentions,
                 }}
                 hashtag={{}}
+                toolbarCustomButtons={[<HTMlPreview />]}
             />
 
-            <Box
-                width="100%"
-                border="1px solid red"
-                p={2}
-                mt={5}
-            >
 
-            </Box>
         </Box>
     )
 };
