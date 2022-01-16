@@ -62,7 +62,9 @@ export const Create = () => {
 
     }, [editorState])
 
-    const HTMlPreview = () => <Text className="rdw-option-wrapper"  onClick={onOpen}> Preview HTML</Text>
+    const HTMlPreview = () => <Text className="rdw-option-wrapper" onClick={onOpen}> Preview HTML</Text>;
+
+    const ClearEditorState = () => <Text className="rdw-option-wrapper" onClick={() => setEditorState(EditorState.createEmpty())}> Clear Editor</Text>;
 
 
     return (
@@ -125,7 +127,7 @@ export const Create = () => {
                     suggestions: mentions,
                 }}
                 hashtag={{}}
-                toolbarCustomButtons={[<HTMlPreview />]}
+                toolbarCustomButtons={[<HTMlPreview />, <ClearEditorState />]}
             />
 
 
