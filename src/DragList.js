@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Box, Flex } from '@chakra-ui/react';
 export const DragList = () => {
     const getItems = count =>
         Array.from({ length: count }, (v, k) => k).map(k => ({
@@ -31,9 +32,12 @@ export const DragList = () => {
     });
 
     const getListStyle = isDraggingOver => ({
-        background: isDraggingOver ? "lightblue" : "lightgrey",
+        background: isDraggingOver ? "yellow" : "green",
         padding: grid,
-        width: 250
+        // display: 'flex',
+        // overflow: 'auto',
+
+        width: 250,
     });
 
     const [items, setItems] = useState(getItems(10));
@@ -51,7 +55,7 @@ export const DragList = () => {
         );
 
         setItems(items2);
-       
+
     }
 
     useEffect(() => {
@@ -61,7 +65,7 @@ export const DragList = () => {
         <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="droppable">
                 {(provided, snapshot) => (
-                    <div
+                    <Box
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                         style={getListStyle(snapshot.isDraggingOver)}
@@ -69,7 +73,7 @@ export const DragList = () => {
                         {items.map((item, index) => (
                             <Draggable key={item.id} draggableId={item.id} index={index}>
                                 {(provided, snapshot) => (
-                                    <div
+                                    <Box border='5px solid black'
                                         ref={provided.innerRef}
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
@@ -79,12 +83,12 @@ export const DragList = () => {
                                         )}
                                     >
                                         {item.content}
-                                    </div>
+                                    </Box>
                                 )}
                             </Draggable>
                         ))}
                         {provided.placeholder}
-                    </div>
+                    </Box>
                 )}
             </Droppable>
         </DragDropContext>
