@@ -43,7 +43,7 @@ export const CarouselDemo = () => {
 
         <Box w='500px' h='100%'>
             <Carousel
-                slidesToShow={2}>
+                slidesToShow={1}>
                 {items.map((item, index) => (
                     <Flex flexDirection='column' key={index.toString()}>
 
