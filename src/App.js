@@ -5,7 +5,7 @@ import { Create } from './Create';
 import { CodeEditor } from './CodeEditor';
 import { SimpleCodeEditor } from './SimpleCodeEditor';
 import { DragList } from './DragList';
-
+import {CarouselDemo} from './CarouselDemo';
 function App() {
   return (
     <ChakraProvider>
@@ -14,7 +14,9 @@ function App() {
       {/* <Create/> */}
       {/* <CodeEditor />
       <SimpleCodeEditor /> */}
-      <DragList />
+      {/* <DragList />
+       */}
+      <CarouselDemo/>
     </ChakraProvider>
   );
 }
