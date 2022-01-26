@@ -62,7 +62,11 @@ export const CarouselDemo = () => {
         </Box>
 
         <Box>
-            <Image w='200px' height='200px' src={items[selectedIndex].image.path} alt={items[selectedIndex].image.altText} objectFit='cover' />
+            <Box overflow='hidden' border='1px solid green' w='200px'>
+                <Image w='100%' height='200px' src={items[selectedIndex].image.path} alt={items[selectedIndex].image.altText} objectFit='cover' borderRadius='30px' _hover={{
+                    transform:'scale(1.5)'
+                }}  />
+            </Box>
             <Accordion>
                 {items.map((item, index) => (
 
@@ -78,10 +82,6 @@ export const CarouselDemo = () => {
 
             </Accordion>
         </Box>
-        <Box>
-            <a href="www.facebook.com" target="_blank">
-                <Heading>Cheese is favorite holiday gift</Heading>
-            </a>
-        </Box>
+       
     </>;
 };
