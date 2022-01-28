@@ -5,7 +5,8 @@ import { Create } from './Create';
 import { CodeEditor } from './CodeEditor';
 import { SimpleCodeEditor } from './SimpleCodeEditor';
 import { DragList } from './DragList';
-import {CarouselDemo} from './CarouselDemo';
+import { CarouselDemo } from './CarouselDemo';
+import {Index } from './ReduxDemo/Index';
 function App() {
   return (
     <ChakraProvider>
@@ -16,7 +17,8 @@ function App() {
       <SimpleCodeEditor /> */}
       {/* <DragList />
        */}
-      <CarouselDemo/>
+      {/* <CarouselDemo/> */}
+      <Index/>
     </ChakraProvider>
   );
 }
