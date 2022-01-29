@@ -21,7 +21,7 @@ export const Sidebar = () => {
     return <>
 
         <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-            Menus
+           Cart
         </Button>
         <Drawer
             isOpen={isOpen}

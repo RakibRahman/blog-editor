@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './counterSlice';
 import userReducer from './userSlice';
-
+import cartReducer from './cartSlice';
 import {
     persistReducer,
     FLUSH,
@@ -22,12 +22,14 @@ const persistedCounterReducer = persistReducer(persistConfig, counterReducer);
 
 const persistedUserReducer = persistReducer(persistConfig, userReducer)
 
+const persistedShopReducer = persistReducer(persistConfig, cartReducer)
 
 // persist data
 export const store = configureStore({
     reducer: {
         counter: persistedCounterReducer,
         user: persistedUserReducer,
+        cart: persistedShopReducer
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -36,7 +38,7 @@ export const store = configureStore({
             },
         }),
 
-}); 
+});
 
 
 // export const store = configureStore({
