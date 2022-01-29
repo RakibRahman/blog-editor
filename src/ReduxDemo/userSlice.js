@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
 const initialState = {
 
@@ -31,6 +31,7 @@ export const userSlice = createSlice({
             const newItem = action.payload
             const array = [...state.profiles, newItem]
             state.profiles = array
+            console.log(current(state));
         },
         deleteItem: (state, action) => {
             const newArray = state.profiles.filter((item, i) => i !== action.payload);
