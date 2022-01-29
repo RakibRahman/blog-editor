@@ -1,6 +1,10 @@
 import React from 'react';
-import { Spacer, Flex, Box, Button, Heading,Text } from '@chakra-ui/react';
+import { Spacer, Flex, Box, Button, Heading, Text } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
+
 export const Navbar = () => {
+    const user = useSelector((state) => state.user.profile);
+
     return <>
         <Flex>
             <Box p='2'>
@@ -9,7 +13,7 @@ export const Navbar = () => {
             <Spacer />
             <Flex>
                 <Heading colorScheme='teal'  size='sm' mr={2}>
-                  John
+                  {user.name}
                 </Heading>
                 <Text colorScheme='teal'>LogOut</Text>
             </Flex>
