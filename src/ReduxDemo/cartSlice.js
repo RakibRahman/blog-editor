@@ -12,7 +12,16 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            state.cartList.push(action.payload);
+            // state.cartList.push(action.payload);
+            const isNewItem = state.cartList.find((item, i) => item.id === action.payload.id);
+            if (isNewItem) {
+                state.cartList = state.cartList.map((item, i) => item.id === action.payload.id ? { ...isNewItem, qty: isNewItem.qty + 1 } : item);
+            
+            } else {
+                state.cartList = [...state.cartList, { ...action.payload, qty: 1 }]
+            }
+
+            // console.log(action.payload.id);
         },
         addToWish: (state, action) => {
             state.wishList.push(action.payload);

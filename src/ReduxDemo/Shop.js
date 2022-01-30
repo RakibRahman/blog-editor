@@ -22,8 +22,6 @@ export const Shop = () => {
     useEffect(() =>
         console.log(wishItems), [wishItems]);
     return <>
-
-
         <Button onClick={() => dispatch(resetCart())}>Clear Cart</Button>
         <Button onClick={() => dispatch(resetWish())}>Clear WishList</Button>
 
@@ -38,7 +36,6 @@ export const Shop = () => {
                         <Flex cursor='pointer' justify='space-between' bg='blue.300' w='100%'>
                             <Button onClick={() => dispatch(addToCart(item))}>Add to Cart</Button>
                             <Text onClick={() => dispatch(addToWish(item))}>Add to WishList</Text>
-
                         </Flex>
                     </Flex>)
             }
