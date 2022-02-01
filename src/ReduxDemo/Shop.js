@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Flex, Text, Image, Heading, SimpleGrid, Button } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
-import { wishToCart, addToCart, resetCart, resetWish, addToWish, deleteWishItem, deleteCartItem } from './cartSlice';
+import { addItem, wishToCart, resetCart, resetWish, deleteItem} from './cartSlice';
 export const Shop = () => {
     const [data, setData] = useState();
     const cartItems = useSelector((state) => state.cart.cartList);
     const wishItems = useSelector((state) => state.cart.wishList);
     const dispatch = useDispatch();
 
-    const handleAddItem = (type) => {
+    const handleAddItem = (item, type) => {
+        dispatch(addItem({ item: item, type: type }))
 
-    }
+    };
+    // const deleteItem = (item, index) => {
+    //     dispatch(deleteItem({ item: item, index: index }))
+    // }
     useEffect(() => {
         fetch('https://fakestoreapi.com/products?limit=5')
             .then(res => res.json())
@@ -34,8 +38,8 @@ export const Shop = () => {
                         <Text>{item.price}</Text>
                         <Text>{item.category}</Text>
                         <Flex cursor='pointer' justify='space-between' bg='blue.300' w='100%'>
-                            <Button onClick={() => dispatch(addToCart(item))}>Add to Cart</Button>
-                            <Text onClick={() => dispatch(addToWish(item))}>Add to WishList</Text>
+                            <Button onClick={()=>handleAddItem(item,'cart')}>Add to Cart</Button>
+                            <Text onClick={()=>handleAddItem(item,'wishList')}>Add to WishList</Text>
                         </Flex>
                     </Flex>)
             }
