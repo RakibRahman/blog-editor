@@ -7,7 +7,8 @@ import { SimpleCodeEditor } from './SimpleCodeEditor';
 import { DragList } from './DragList';
 import { CarouselDemo } from './CarouselDemo';
 import { Index } from './ReduxDemo/Index';
-import FileExplorer from './FileExplorer'
+import FileExplorer from './FileExplorer';
+import Timeline from './Timeline';
 const data = {
   name: 'This PC',
   isFolder: true,
@@ -61,7 +62,8 @@ const data = {
 function App() {
   return (
     <ChakraProvider>
-      <FileExplorer data={data} />
+      <Timeline />
+      {/* <FileExplorer data={data} /> */}
       {/* <CountInput />
        */}
       {/* <Create/> */}
