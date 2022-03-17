@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #474e5d;
+  font-family: Helvetica, sans-serif;
+}
+
+/* The actual timeline (the vertical ruler) */
 .timeline {
   position: relative;
   max-width: 1200px;
@@ -6,36 +16,32 @@
 
 /* The actual timeline (the vertical ruler) */
 .timeline::after {
-  /* content: "";
+  content: "";
   position: absolute;
   width: 6px;
-  background-color: white;
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -3px; */
+  margin-left: -3px;
 }
 
 /* Container around content */
 .container {
-  /* padding: 10px 40px;
+  padding: 10px 40px;
   position: relative;
   background-color: inherit;
-  width: 50%; */
+  width: 50%;
 }
 
 /* The circles on the timeline */
 .container::after {
-  /* content: "";
+  content: "";
   position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #ff9f55;
+ 
+  right: -13px;
   top: 15px;
   border-radius: 50%;
-  z-index: 1; */
+  z-index: 1;
 }
 
 /* Place the container to the left */
@@ -86,7 +92,7 @@
   padding: 20px 30px;
   background-color: white;
   position: relative;
-  border-radius: 6px;
+  border-radius: 30px 6px 50px;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */

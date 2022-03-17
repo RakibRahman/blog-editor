@@ -28,41 +28,33 @@ const Timeline = () => {
     ]
 
     return (
-        <Box style={{ backgroundColor: '#f14', height: 'auto' }}>
-            <Box className="timeline" _after={{
 
-                content: `""`,
-                position: 'absolute',
-                width: '6px',
-                backgroundColor: 'white',
-                top: 0,
-                bottom: 0,
-                left: '50%',
-                marginLeft: '-3px',
-            }}>
+        <Box style={{ backgroundColor: '#f14', height: 'auto' }}>
+            <Box className="timeline"
+                _after={{
+
+                    bg: 'lime' //ruler color
+
+                }}
+            >
 
                 {data.map((item, index) => (
                     <Box
-                        padding='10px 40px'
-                        position='relative'
-                        backgroundColor='inherit'
-                        width='50%'
-
                         _after={{
-                            content: `""`,
-                            position: 'absolute',
-                            width: '25px',
-                            height: '25px',
-                            right: '-17px',
-                            backgroundColor: 'white',
-                            border: '4px solid #ff9f55',
-                            top: '15px',
-                            borderRadius: '50%',
-                            zIndex: 1
+                            width: '30px', //container circle width
+                            height: '30px', //container circle height
+                            backgroundColor: 'white', // container circle bg
+                            border: '4px solid #ff9f55' // container circle border
                         }}
+                        className={(index % 2 === 0) ? "container left" : "container right"}>
+                        <Box
+                            padding='20px 30px'
+                            bg='white'
+                            position='relative'
+                            borderRadius='6px'
 
-                        className={(index % 2 === 0) ? "left" : "right"}>
-                        <Box className="content">
+                            className="content"
+                        >
                             <Heading>{item.date}</Heading>
                             <Text>{item.text}</Text>
                         </Box>
@@ -71,6 +63,7 @@ const Timeline = () => {
                 ))}
             </Box>
         </Box >
+
     )
 }
 
