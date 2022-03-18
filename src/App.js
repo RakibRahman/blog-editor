@@ -9,6 +9,8 @@ import { CarouselDemo } from './CarouselDemo';
 import { Index } from './ReduxDemo/Index';
 import FileExplorer from './FileExplorer';
 import Timeline from './Timeline';
+import TreeComponent from './Tree'
+
 const data = {
   name: 'This PC',
   isFolder: true,
@@ -62,7 +64,8 @@ const data = {
 function App() {
   return (
     <ChakraProvider>
-      <Timeline />
+      {/* <Timeline /> */}
+      <TreeComponent />
       {/* <FileExplorer data={data} /> */}
       {/* <CountInput />
        */}
