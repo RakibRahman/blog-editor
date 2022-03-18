@@ -48,18 +48,23 @@ const Timeline = () => {
                                 border: '4px solid #ff9f55' // container circle border
                             }}
                             className={(index % 2 === 0) ? "container left" : "container right"}
-                            css={{
+                            sx={{
                                 '&.left::before': {
                                     border: 'medium solid white',
                                     borderWidth: '10px 0 10px 10px',
-                                    borderColor: 'transparent transparent transparent green'
+                                    borderColor: 'transparent transparent transparent hotpink'
+                                },
+                                '&.right::before': {
+                                    border: 'medium solid white',
+                                    borderWidth: '10px 10px 10px 0',
+                                    borderColor: 'transparent hotpink transparent transparent'
                                 },
 
                             }}
                         >
                             <Box
-                                padding='20px 30px'
-                                bg='green'
+                                padding='20px 30px' //card padding
+                                bg='hotpink' //card bg
                                 position='relative'
                                 borderRadius='6px'
 
