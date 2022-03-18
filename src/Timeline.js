@@ -39,24 +39,35 @@ const Timeline = () => {
             >
 
                 {data.map((item, index) => (
-                    <Box
-                        _after={{
-                            width: '30px', //container circle width
-                            height: '30px', //container circle height
-                            backgroundColor: 'white', // container circle bg
-                            border: '4px solid #ff9f55' // container circle border
-                        }}
-                        className={(index % 2 === 0) ? "container left" : "container right"}>
+                    <Box bordercolor='red'>
                         <Box
-                            padding='20px 30px'
-                            bg='white'
-                            position='relative'
-                            borderRadius='6px'
+                            _after={{
+                                width: '30px', //container circle width
+                                height: '30px', //container circle height
+                                backgroundColor: 'white', // container circle bg
+                                border: '4px solid #ff9f55' // container circle border
+                            }}
+                            className={(index % 2 === 0) ? "container left" : "container right"}
+                            css={{
+                                '&.left::before': {
+                                    border: 'medium solid white',
+                                    borderWidth: '10px 0 10px 10px',
+                                    borderColor: 'transparent transparent transparent green'
+                                },
 
-                            className="content"
+                            }}
                         >
-                            <Heading>{item.date}</Heading>
-                            <Text>{item.text}</Text>
+                            <Box
+                                padding='20px 30px'
+                                bg='green'
+                                position='relative'
+                                borderRadius='6px'
+
+                                className="content"
+                            >
+                                <Heading>{item.date}</Heading>
+                                <Text>{item.text}</Text>
+                            </Box>
                         </Box>
                     </Box>
 
