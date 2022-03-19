@@ -1,47 +1,49 @@
 import React from 'react'
 import './Style.css';
 import { data } from './data';
-import { Box, Text, Image, Heading, Link, List, ListItem } from '@chakra-ui/react'
+import { Box, Text, Image, Heading, Link, List, ListItem, Stack } from '@chakra-ui/react'
 
 
 const Card = (props) => {
-    console.log(data)
+
     return (
-        <Box>
-            <Box className="tree">
-                <List>
-                    {props.data.map((item, index) => (
-
-                        <ListItem>
 
 
-                            <Link href='#'>
-                                <Image src={`https://picsum.photos/200/300?random=${index + 1}`} alt='img default' />
-                                <span>{item.title}</span>
-                                <span>{item.title}</span>
-                            </Link>
+        <ul>
+            {props.data.map((item, index) => (
+                <li>
 
-                            {item.children?.length && <Card data={item.children} />}
+                    <a href="#">
+
+                        <img src="images/1.jpg" />
+
+                        <span>{item.title}</span>
+                        <span>{item.subtitle}</span>
+                        
+                        {/* <span>{item.id}</span> */}
+
+                    </a>
+
+                    {item.children && (
+                        <Card data={item.children} />
+
+                    )}
+                </li>
+            ))}
+        </ul>
 
 
-
-                        </ListItem>
-
-                    ))}
-                </List>
-            </Box>
-        </Box>
     )
 
 }
 
 const TreeComponent = () => {
     return (
-        <>
+        <div className="tree">
 
             <Card data={data} />
 
-        </>
+        </div>
     )
 }
 export default TreeComponent;

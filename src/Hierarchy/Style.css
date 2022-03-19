@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-/* * {
+* {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
@@ -9,11 +9,11 @@ body {
   display: grid;
   align-items: center;
   font-family: "Poppins", sans-serif;
-} */
+}
 .tree {
   width: 100%;
   height: auto;
-  /* text-align: center; */
+  text-align: center;
 }
 .tree ul {
   padding-top: 20px;
@@ -41,7 +41,7 @@ body {
 .tree li::after {
   right: auto;
   left: 50%;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid blue;
 }
 .tree li:only-child::after,
 .tree li:only-child::before {
@@ -91,23 +91,18 @@ body {
   margin: auto;
 }
 .tree li a span {
-  /* border: 1px solid #ccc;
-  border-radius: 5px; */
+  border: 1px solid #ccc;
+  border-radius: 5px;
   color: #666;
-  padding: 8px;
+  padding: 5px;
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   font-weight: 500;
 }
-.tree li a p {
-  color: #666;
-  padding: 8px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 500;
-}
+
+
+
 /*Hover-Section*/
 .tree li a:hover,
 .tree li a:hover i,
@@ -122,11 +117,4 @@ body {
 .tree li a:hover + ul::before,
 .tree li a:hover + ul ul::before {
   border-color: #94a0b4;
-}
-
-@media screen and (max-width: 500px) {
-  .tree li::before,
-  .tree li::after {
-    border-color: transparent;
-  }
 }
