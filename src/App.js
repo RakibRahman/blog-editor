@@ -9,7 +9,8 @@ import { CarouselDemo } from './CarouselDemo';
 import { Index } from './ReduxDemo/Index';
 import FileExplorer from './FileExplorer';
 import Timeline from './Timeline';
-import TreeComponent from './Tree'
+import Chart from './Hierarchy/Tree';
+import TreeComponent from './Hierarchy/TreeComponent';
 
 const data = {
   name: 'This PC',
@@ -65,6 +66,7 @@ function App() {
   return (
     <ChakraProvider>
       {/* <Timeline /> */}
+      {/* <Chart /> */}
       <TreeComponent />
       {/* <FileExplorer data={data} /> */}
       {/* <CountInput />
