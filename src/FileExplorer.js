@@ -33,8 +33,6 @@ const FileExplorer = ({ data }) => {
                     {expand ? <AiFillCaretDown /> : <AiFillCaretRight />}
                 </Flex>
             </Flex>
-
-
             {data.items && data.items.map((item, index) => {
                 return <Flex display={expand ? 'block' : 'none'} pl='15px'>
 

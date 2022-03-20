@@ -54,11 +54,11 @@ const Card = (props) => {
 
 const Chart = () => {
     return (
-        <civ className="container">
+        <div className="container">
             <div className="org-tree">
                 <Card data={data} />
             </div>
-        </civ>
+        </div>
     );
 };
 

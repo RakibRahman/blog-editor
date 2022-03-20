@@ -1,36 +1,53 @@
 import React from 'react'
 import './Style.css';
 import { data } from './data';
-import { Box, Text, Image, Heading, Link, List, ListItem, Stack } from '@chakra-ui/react'
+import { Box, Text, Image, Heading, Link, List, ListItem, Stack, Button } from '@chakra-ui/react'
 
 
 const Card = (props) => {
+    let newObject = {};
+    React.useEffect(() => {
+
+        console.log(props.data)
+     }, [props])
+
+    const getObj
+        = (id) => {
+
+
+            const obj = props.data.filter((item) => (item.id !== id));
+           
+
+         
+
+
+        }
+
 
     return (
 
 
-        <ul>
+        <List>
             {props.data.map((item, index) => (
-                <li>
+                <ListItem key={item.id}>
 
-                    <a href="#">
+                    <Link href={item?.link} onClick={() => getObj(item.id)}>
 
-                        <img src="images/1.jpg" />
+                        <Image src={`https://picsum.photos/200/300?random=${index + 1}`} />
 
-                        <span>{item.title}</span>
-                        <span>{item.subtitle}</span>
-                        
-                        {/* <span>{item.id}</span> */}
+                        <Text as='span' mb={1}>{item.title}</Text>
+                        <Text as='span'>{item.subtitle}</Text>
 
-                    </a>
 
-                    {item.children && (
+                    </Link>
+
+                    {item.children.length > 0 && (
                         <Card data={item.children} />
 
                     )}
-                </li>
+                </ListItem>
             ))}
-        </ul>
+        </List>
 
 
     )
