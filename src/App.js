@@ -145,7 +145,7 @@ function App() {
       {/* <Timeline /> */}
       {/* <Chart /> */}
       {/* <TreeComponent /> */}
-      <FileExplorer data={data} />
+      {/* <FileExplorer data={data} /> */}
       <FileExplorerV2 data={catTree} />
 
       {/* <CountInput />
