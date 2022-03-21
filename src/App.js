@@ -13,7 +13,7 @@ import FileExplorerV2 from './FileExplorerV2';
 import Timeline from './Timeline';
 import Chart from './Hierarchy/Tree';
 import TreeComponent from './Hierarchy/TreeComponent';
-
+import TreeList from './FileExplorerV3';
 const data = {
   name: 'This PC',
   isFolder: true,
@@ -147,7 +147,7 @@ function App() {
       {/* <TreeComponent /> */}
       {/* <FileExplorer data={data} /> */}
       <FileExplorerV2 data={catTree} />
-
+      <TreeList data={catTree} />
       {/* <CountInput />
        */}
       {/* <Create/> */}

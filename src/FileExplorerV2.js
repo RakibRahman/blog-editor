@@ -11,19 +11,7 @@ const FileExplorerV2 = ({ data }) => {
     const onChangeHandler = (e) => {
         console.log(e)
     }
-    //  <Stack>
 
-    // <Flex align="center" color='green' onClick={toggleList}>{data.name} {expand ? <AiFillCaretDown /> : <AiFillCaretRight />}</Flex>
-    // {
-    //     data.items && data.items.map((item, index) => {
-    //         return <Checkbox display={expand ? 'block' : 'none'} pl='5px'>
-
-    //             <FileExplorer data={item} />
-    //         </Checkbox>
-    //     })
-    // }
-
-    // </Stack >
 
     return (
         <Stack>
@@ -32,7 +20,7 @@ const FileExplorerV2 = ({ data }) => {
                     <Flex>
                         <Checkbox value={item.id}
 
-                            defaultIsChecked={item.id}
+                            defaultIsChecked={false}
                             onChange={(e) => onChangeHandler(e.target)}
                         />
                         {item.name}{' '}
