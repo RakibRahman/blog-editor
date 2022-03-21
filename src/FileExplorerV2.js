@@ -3,7 +3,7 @@ import { Box, Flex, Text, Checkbox, FormLabel, Stack } from '@chakra-ui/react';
 
 import { AiFillCaretRight, AiFillCaretDown } from "react-icons/ai";
 
-const FileExplorer = ({ data }) => {
+const FileExplorerV2 = ({ data }) => {
     const [expand, setExpand] = React.useState(true);
     const toggleList = () => setExpand(!expand);
 
@@ -36,7 +36,7 @@ const FileExplorer = ({ data }) => {
             {data.items && data.items.map((item, index) => {
                 return <Flex display={expand ? 'block' : 'none'} pl='15px'>
 
-                    <FileExplorer data={item} />
+                    <FileExplorerV2 data={item} />
 
                 </Flex>
             })}
@@ -46,4 +46,4 @@ const FileExplorer = ({ data }) => {
 }
 
 
-export default FileExplorer
+export default FileExplorerV2
